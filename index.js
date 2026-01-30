@@ -2,6 +2,24 @@ const express = require('express');
 const app = express();
 const PORT = 3000;
 
+// --- LE VIGILE (Sécurité API Key) ---
+const secretKey = "MERRY-SECRET-PASS"; // Ceci sera ta clé "maître" pour l'instant
+
+// Ce code s'active à CHAQUE demande pour vérifier la clé
+app.use((req, res, next) => {
+    // On laisse passer la page d'accueil (le message de bienvenue)
+    if (req.path === '/') return next();
+
+    const userKey = req.headers['x-api-key']; // Le client doit envoyer sa clé ici
+
+    if (userKey === secretKey) {
+        next(); // La clé est bonne, on laisse entrer
+    } else {
+        res.status(403).json({ error: "Accès refusé. Clé API manquante ou invalide." });
+    }
+});
+// -------------------------------------
+
 // Ceci permet à ton API de comprendre les données qu'on lui envoie
 app.use(express.json());
 
