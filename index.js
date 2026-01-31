@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+app.use(express.static('public'));
 const PORT = 3000;
 
 // --- CONFIGURATION ---
@@ -22,11 +23,7 @@ app.use((req, res, next) => {
     } else {
         res.status(403).json({ error: "Accès refusé. Clé API manquante." });
     }
-});
 
-// --- ROUTE D'ACCUEIL ---
-app.get('/', (req, res) => {
-    res.json({ status: "En ligne", version: "2.0 (Finance + Sécurité)", creator: "Merry Doumbia" });
 });
 
 // --- LE CERVEAU (MOTEUR D'ANALYSE) ---
