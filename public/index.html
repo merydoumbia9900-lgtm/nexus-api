@@ -3,51 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NEXUS | L'Intelligence de la Donnée Africaine</title>
+    <title>NEXUS | Infrastructure de Confiance Numérique</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
     <style>
-        body { margin: 0; font-family: 'Courier New', monospace; background-color: #0a0a0a; color: #e0e0e0; }
-        .container { max-width: 900px; margin: 0 auto; padding: 40px 20px; }
-        h1 { color: #00ff41; font-size: 2.5rem; text-transform: uppercase; letter-spacing: 2px; }
-        h2 { border-bottom: 2px solid #00ff41; padding-bottom: 10px; margin-top: 40px; }
-        .hero { text-align: center; padding: 60px 0; border: 1px solid #333; background: #111; margin-bottom: 40px; }
-        .btn { background-color: #00ff41; color: #000; padding: 15px 30px; text-decoration: none; font-weight: bold; font-size: 1.2rem; display: inline-block; margin-top: 20px; }
-        .btn:hover { background-color: #fff; cursor: pointer; }
-        .features { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-        .card { background: #1a1a1a; padding: 20px; border-left: 4px solid #00ff41; }
-        code { background: #333; padding: 2px 6px; color: #00ff41; }
-        footer { text-align: center; margin-top: 60px; font-size: 0.8rem; color: #666; }
+        /* --- CONFIGURATION MODERNE (Variables) --- */
+        :root {
+            --bg-dark: #0a0a0a;
+            --glass-bg: rgba(255, 255, 255, 0.03);
+            --glass-border: rgba(255, 255, 255, 0.08);
+            --neon-green: #00ff88;
+            --neon-glow: 0 0 20px rgba(0, 255, 136, 0.4);
+            --text-primary: #ffffff;
+            --text-secondary: #a0a0a0;
+        }
+
+        /* --- BASE --- */
+        body {
+            margin: 0;
+            font-family: 'Inter', sans-serif; /* Police moderne */
+            background-color: var(--bg-dark);
+            /* Fond dégradé subtil */
+            background-image: radial-gradient(circle at top right, rgba(0,255,136,0.1), transparent 40%),
+                              radial-gradient(circle at bottom left, rgba(0,100,255,0.1), transparent 40%);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+        .container { max-width: 1000px; margin: 0 auto; padding: 40px 20px; }
+
+        /* --- EFFET VERRE (Glassmorphism) --- */
+        .glass-panel {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px); /* Le flou derrière le verre */
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+
+        /* --- TYPOGRAPHIE --- */
+        h1 {
+            font-weight: 800;
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            /* Effet de texte dégradé */
+            background: linear-gradient(to right, #fff, var(--neon-green));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+        h2 { font-weight: 600; border-bottom: 1px solid var(--glass-border); padding-bottom: 15px; margin-top: 50px; color: var(--neon-green); }
+        h3 { font-weight: 600; margin-top: 0; }
+        p.lead { font-size: 1.2rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto 30px auto; }
+
+        /* --- BOUTONS LUMINEUX --- */
+        .btn-neon {
+            background: var(--neon-green);
+            color: #000;
+            padding: 18px 40px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            letter-spacing: 1px;
+            display: inline-block;
+            transition: all 0.3s ease;
+            box-shadow: var(--neon-glow);
+            border: none;
+            cursor: pointer;
+        }
+        .btn-neon:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 0 40px rgba(0, 255, 136, 0.7);
+            background: white;
+        }
+
+        /* --- GRILLE DES FONCTIONS --- */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        .feature-card {
+            padding: 30px;
+            border-top: 3px solid var(--neon-green);
+            transition: transform 0.3s ease;
+        }
+        .feature-card:hover { transform: translateY(-10px); }
+        .feature-icon { font-size: 2rem; margin-bottom: 20px; display: block; }
+
+        /* --- CODE BLOCK --- */
+        .code-block {
+            background: rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 10px;
+            font-family: 'Courier New', monospace;
+            border: 1px solid var(--glass-border);
+        }
+        code { color: var(--neon-green); }
+
+        /* --- FOOTER --- */
+        footer { text-align: center; margin-top: 80px; font-size: 0.9rem; color: var(--text-secondary); padding: 20px; border-top: 1px solid var(--glass-border); }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="hero">
-            <h1>NEXUS API</h1>
-            <p>La première infrastructure de vérification d'identité et de solvabilité <br>dédiée à l'Afrique de l'Ouest.</p>
-            <a href="mailto:contact@nexus-api.com" class="btn">DEMANDER UN ACCÈS ENTREPRISE</a>
+        <div class="glass-panel" style="text-align: center; padding: 80px 40px;">
+            <h1>NEXUS INTELLIGENCE</h1>
+            <p class="lead">L'infrastructure de vérification d'identité et de solvabilité financière la plus avancée d'Afrique de l'Ouest.</p>
+            <a href="mailto:partnership@nexus-api.com" class="btn-neon">ACCÈS PARTENAIRE ></a>
         </div>
 
-        <div class="features">
-            <div class="card">
-                <h3>🛡️ Sécurité Anti-Fraude</h3>
-                <p>Détectez instantanément les numéros à risque grâce à notre Blacklist partagée par les plus grandes institutions.</p>
+        <div class="features-grid">
+            <div class="glass-panel feature-card">
+                <span class="feature-icon">🛡️</span>
+                <h3>Sécurité Bancaire</h3>
+                <p>Détection proactive des fraudes grâce à notre base de données partagée et nos algorithmes d'IA.</p>
             </div>
-            <div class="card">
-                <h3>💰 Mobile Money Intelligence</h3>
-                <p>Identifiez les numéros compatibles <strong>Orange Money, Moov, Wave</strong> avant d'envoyer des fonds.</p>
+            <div class="glass-panel feature-card">
+                <span class="feature-icon">💳</span>
+                <h3>Mobile Money Connect</h3>
+                <p>Qualifiez instantanément les numéros (Orange, Moov, Wave) pour sécuriser vos transactions sortantes.</p>
+            </div>
+            <div class="glass-panel feature-card">
+                <span class="feature-icon">⚡</span>
+                <h3>API Temps Réel</h3>
+                <p>Latence inférieure à 100ms. Infrastructure haute disponibilité hébergée en Europe (Francfort).</p>
             </div>
         </div>
 
-        <h2>Documentation Technique</h2>
-        <p>Intégrez Nexus en moins de 5 minutes :</p>
-        <div class="card">
-            <p><strong>Endpoint :</strong> <code>POST https://nexus-api-x5v6.onrender.com/verifier-numero</code></p>
-            <p><strong>Authentification :</strong> Header <code>x-api-key</code></p>
+        <h2>Intégration Développeur</h2>
+        <div class="glass-panel">
+            <p>Intégrez notre endpoint sécurisé en quelques lignes de code.</p>
+            <div class="code-block">
+                <p>POST /verifier-numero HTTP/1.1</p>
+                <p>Host: nexus-api-x5v6.onrender.com</p>
+                <p>x-api-key: VOTRE_CLE_SECRETE_PRO</p>
+                <p>Content-Type: application/json</p>
+                <br>
+                <p>{ "telephone": "+22370000000" }</p>
+            </div>
         </div>
-
-        <footer>
-            &copy; 2026 NEXUS CORP. Tous droits réservés. <br>
-            Infrastructure hébergée à Francfort (EU). Conformité RGPD.
-        </footer>
     </div>
+
+    <footer>
+        &copy; 2026 NEXUS TECHNOLOGY CORP. • Solutions de confiance pour l'économie numérique africaine.
+    </footer>
 </body>
 </html>
